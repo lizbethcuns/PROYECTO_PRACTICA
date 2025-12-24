@@ -61,3 +61,34 @@ champ_teleop
 go2_config
 go2_description
 lizbeth@lizbeth-Laptop:~/go2_cun$
+
+
+Aunque el repositorio se llama:
+
+unitree-go2-ros2
+
+
+Paquetes del framework CHAMP (9 paquetes):
+
+champ - Framework base
+champ_base - Controlador base
+champ_bringup - Lanzadores
+champ_config - Configuraciones
+champ_description - Descripciones URDF
+champ_gazebo - Integración con Gazebo
+champ_msgs - Mensajes personalizados
+champ_navigation - Navegación
+champ_teleop - Teleoperación
+
+Paquetes específicos del GO2 (2 paquetes):
+
+go2_config - Configuración del GO2
+go2_description - Descripción URDF del GO2
+
+Estado actual:
+✅ Workspace go2_cun creado correctamente
+✅ 11 paquetes compilados exitosamente
+✅ Sourced correctamente
+✅ Paquetes disponibles en ROS2
+
+Por eso la mayoría de paquetes son champ_*, no unitree_*.
