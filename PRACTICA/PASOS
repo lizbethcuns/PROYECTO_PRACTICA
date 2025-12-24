@@ -46,3 +46,18 @@ source ~/go2_cun/install/setup.bash
 
 
 (no sourcear turtlebot ahí)
+
+lizbeth@lizbeth-Laptop:~/go2_cun$ ros2 pkg list | grep champ
+ros2 pkg list | grep go2
+champ
+champ_base
+champ_bringup
+champ_config
+champ_description
+champ_gazebo
+champ_msgs
+champ_navigation
+champ_teleop
+go2_config
+go2_description
+lizbeth@lizbeth-Laptop:~/go2_cun$
