@@ -104,8 +104,49 @@ ros2 pkg list | grep go2
 Debe salir:
 go2_config
 go2_description
+
+-------------------------------------EMPEZAR DESDE LA TEMRINAL -----------------------------------------------------
+Ve a tu workspace go2_cun
+cd ~/go2_cun
+------------------------------------------- IMPORTANTE --------------------------------------------------------------
+2️⃣ Ve a tu workspace go2_cun
+cd ~/go2_cun
+
+3️⃣ Carga el entorno de ROS 2 y tu workspace
+
+⚠️ Este paso es obligatorio después de reiniciar
+
+source install/setup.bash
+
+(Si usas ROS Humble y no lo tienes en tu .bashrc, primero:)
+source /opt/ros/humble/setup.bash
+
+Luego otra vez:
+source install/setup.bash
+
 Y ahora sí ejecuta:
 ros2 launch go2_config gazebo.launch.py rviz:=true
+ 
+EN MI CASO NO SABIA SI TENIA EL .bash es decir es la "memoria automática" de tu terminal. Lo que ves ahí son las instrucciones que la computadora ejecuta 
+por sí sola cada vez que abres una ventana nueva.asi que lo que hice fue ejecutar nano ~/.bashrc , lo cual me salio ME SALIO ESTO EN EL NANO OK ME SALIO if [ -f ~/.bash_aliases ]; then
 
+
+  fi
+
+fi
+
+source /opt/ros/humble/setup.bash
+
+export PATH="$HOME/.local/bin:$PATH"
+
+source /opt/ros/humble/setup.bash
+
+source ~/turtlebot4_ws/install/setup.bash
+
+lo cual estaba incorrecto ya que tenia un duplicado la línea source /opt/ros/humble/setup.bash, no tenia el Go2 activado: Falta la línea del go2_cun y lo que si tenia activado era 
+Turtlebot: La línea source ~/turtlebot4_ws/install/setup.bash está activa.
+--------------------------------------------------------------------------
+pasos para correguir 
+------------------------------------------------------------------------
 2.3 Run the teleop node:
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
