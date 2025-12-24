@@ -152,7 +152,7 @@ ros2 launch go2_config gazebo.launch.py rviz:=true
 
 ❗ Cada terminal nueva necesita su source ya que ROS no recuerda workspaces entre terminales
 
-# Solucion Permanente para evitar que vuelva a pasar (opcional)
+# Solucion 1 Permanente para evitar que vuelva a pasar (opcional)
 Edita tu ~/.bashrc y deja el orden correcto:
 
 ```bash
@@ -165,12 +165,119 @@ El último tiene prioridad → Go2 queda activo.
 ```bash
 source ~/.bashrc
 ```
+# Solucion 2 Permanente para evitar que vuelva a pasar (MAS RECOMENDADA )
 
-# luego de haber arreglado con la solucion permanente 
-Luego de haber aplicado esa solucion puedo seguir con la ejecucion
+```bash
+cd ~/go2_cun
+```
+Abre el archivo (si no lo tienes abierto ya):
+
+```bash
+nano ~/.bashrc
+```
+Usa las flechas del teclado para bajar hasta el final. Edita para que este bloque de abajo y trata de que tu archivo se vea igual. 
+## Esto debe de aparecer en las ultimas lineas del nano
+
+# ... (todo lo de arriba déjalo igual) ...
+```bash
+source /opt/ros/humble/setup.bash
+export PATH="$HOME/.local/bin:$PATH"
+
+# source ~/turtlebot4_ws/install/setup.bash
+source ~/go2_cun/install/setup.bash
+```
+
+(Pon un # delante de la línea del turtlebot. Esto lo "apaga" sin borrarlo (se vuelve un comentario).)
+
+# Guarda los cambios:
+
+    Presiona Ctrl + O (la letra O de oso).
+
+    Presiona Enter (para confirmar el nombre del archivo).
+
+    Presiona Ctrl + X (para salir).
+
+# Aplica los cambios: Para que la terminal se entere de lo que acabas de hacer, escribe esto en la terminal:
+
+```bash
+source ~/.bashrc
+```
+
+## Verificación total 
+
+```bash
+echo $COLCON_PREFIX_PATH
+```
+
+Debe salir:
+
+```bash
+/home/lizbeth/go2_cun/install
+```
+
+Y tambien ejecutar
+
+```bash
+ros2 pkg list | grep go2
+```
+
+Debe listar:
+
+```bash
+go2_config
+go2_description
+```
+
+# A partir de ahora     ===============PONERLE PUNTITOS===========
+
+Cada terminal nueva:
+
+Ya tiene ROS Humble
+
+Ya tiene GO2
+
+NO tendrás que hacer source manual, Cuando quieras turtlebot:
+
+## luego de haber arreglado con la solucion permanente puedo iniciar asi
+
+Ir al workspace 
+
+```bash
+cd ~/go2_cun
+```
+
+Lanza Gazebo (terminal 1)
+
+```bash
+ros2 launch go2_config gazebo.launch.py
+```
+
+y ejecutar los demas terminales... 
+Para poder ver mas informacion abrir el siguiente archivo que se encuentra en la carpeta de UnitreeGo2 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+source ~/turtlebot4_ws/install/setup.bash
+
 
 ```bash
 source ~/go2_cun/install/setup.bash
+```
+
+Aplica los cambios: Para que la terminal se entere de lo que acabas de hacer, escribe esto en la terminal:
+
+```bash
 ros2 launch go2_config gazebo.launch.py rviz:=true
 ```
 
@@ -180,13 +287,21 @@ ros2 launch go2_config gazebo.launch.py rviz:=true
 
 ---------------------------------------------ABRIR TERMINALES----------------------------------------------------
 Gazebo demo: Run the Gazebo environment
+
 ros2 launch go2_config gazebo.launch.py
+
 2.2 Walking demo in RVIZ: Run the gazebo along with rviz
+
 source ~/go2_cun/install/setup.bash
+
 Luego verifica:
+
 ros2 pkg list | grep go2
+
 Debe salir:
+
 go2_config
+
 go2_description
 
 -------------------------------------EMPEZAR DESDE LA TEMRINAL -----------------------------------------------------
