@@ -1,8 +1,7 @@
-
-
+### PASOS PREVIOS DE LA PRACTICA
 Primero se procede instalando ROS-based dependencies, siguiendo los pasos del siguiente repositorio https://github.com/widegonz/unitree-go2-ros2 
 
-
+```bash
 sudo apt install ros-humble-gazebo-ros2-control
 sudo apt install ros-humble-xacro
 sudo apt install ros-humble-robot-localization
@@ -11,7 +10,9 @@ sudo apt install ros-humble-ros2-control
 sudo apt install ros-humble-velodyne
 sudo apt install ros-humble-velodyne-gazebo-plugins
 sudo apt-get install ros-humble-velodyne-description
+```
 
+```bash
 sudo apt install -y python3-rosdep
 rosdep update
 mkdir -p go2_cun/src
@@ -19,36 +20,58 @@ cd go2_cun/src
 git clone https://github.com/widegonz/unitree-go2-ros2.git
 cd ~/go2_cun
 rosdep install --from-paths src --ignore-src -r -y
+```
+construir mi workspace
 
+```bash
 cd ~/go2_cun
 colcon build
 source ~/go2_cun/install/setup.bash
-
-
-VERIFICACION
+```
+##                                  VERIFICACION DE LA INSTALACION
+```bash
 lizbeth@lizbeth-Laptop:~/go2_cun$ echo $COLCON_PREFIX_PATH
 /home/lizbeth/go2_cun/install:/home/lizbeth/turtlebot4_ws/install
 lizbeth@lizbeth-Laptop:~/go2_cun$ 
+```
+##                                 Abrir el terminal desde cero para poder trabajar
+Abrir el workspace
 
+```bash
+cd ~/go2_cun
+```
 
-
-🧹 Si quieres usar SOLO go2_cun
+Si quieres usar SOLO go2_cun
 
 Abre una terminal nueva y ejecuta solo:
 
+```bash
 source ~/go2_cun/install/setup.bash
-
+```
 
 O si tienes en tu ~/.bashrc:
 
+```bash
 source /opt/ros/humble/setup.bash
 source ~/go2_cun/install/setup.bash
+```
 
+### (no sourcear turtlebot ahí)
+ 
+###  ======================================== ojo =======================
 
-(no sourcear turtlebot ahí)
+```bash
+~/go2_cun$ cd ~/go2_cun colcon build
+```
+### VERIFICACION 
 
-lizbeth@lizbeth-Laptop:~/go2_cun$ ros2 pkg list | grep champ
+```bash
+/go2_cun$ ros2 pkg list | grep champ
 ros2 pkg list | grep go2
+```
+
+Aparecera algo como
+
 champ
 champ_base
 champ_bringup
@@ -60,15 +83,10 @@ champ_navigation
 champ_teleop
 go2_config
 go2_description
-lizbeth@lizbeth-Laptop:~/go2_cun$
 
+Aunque el repositorio se llama: unitree-go2-ros2, NINGÚN paquete ROS se llama unitree_*.
 
-Aunque el repositorio se llama:
-
-unitree-go2-ros2
-
-
-Paquetes del framework CHAMP (9 paquetes):
+Paquetes del framework CHAMP (9 paquetes) (control de robots cuadrúpedos) : 
 
 champ - Framework base
 champ_base - Controlador base
@@ -80,7 +98,7 @@ champ_msgs - Mensajes personalizados
 champ_navigation - Navegación
 champ_teleop - Teleoperación
 
-Paquetes específicos del GO2 (2 paquetes):
+Paquetes específicos del GO2 (2 paquetes) Paquetes del Go2 :
 
 go2_config - Configuración del GO2
 go2_description - Descripción URDF del GO2
@@ -92,6 +110,9 @@ Estado actual:
 ✅ Paquetes disponibles en ROS2
 
 Por eso la mayoría de paquetes son champ_*, no unitree_*.
+
+### Qué es CHAMP
+
 
 
 ---------------------------------------------ABRIR TERMINALES----------------------------------------------------
