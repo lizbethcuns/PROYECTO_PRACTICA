@@ -1,3 +1,5 @@
+
+
 Primero se procede instalando ROS-based dependencies, siguiendo los pasos del siguiente repositorio https://github.com/widegonz/unitree-go2-ros2 
 
 
@@ -27,3 +29,20 @@ VERIFICACION
 lizbeth@lizbeth-Laptop:~/go2_cun$ echo $COLCON_PREFIX_PATH
 /home/lizbeth/go2_cun/install:/home/lizbeth/turtlebot4_ws/install
 lizbeth@lizbeth-Laptop:~/go2_cun$ 
+
+
+
+🧹 Si quieres usar SOLO go2_cun
+
+Abre una terminal nueva y ejecuta solo:
+
+source ~/go2_cun/install/setup.bash
+
+
+O si tienes en tu ~/.bashrc:
+
+source /opt/ros/humble/setup.bash
+source ~/go2_cun/install/setup.bash
+
+
+(no sourcear turtlebot ahí)
