@@ -34,38 +34,6 @@ lizbeth@lizbeth-Laptop:~/go2_cun$ echo $COLCON_PREFIX_PATH
 /home/lizbeth/go2_cun/install:/home/lizbeth/turtlebot4_ws/install
 lizbeth@lizbeth-Laptop:~/go2_cun$ 
 ```
-##                                 Abrir el terminal desde cero para poder trabajar
-
-###  ======================================== Problemas previos que se tuvo despues de ejecutar el gazebo  =======================
-Abrir el workspace
-
-```bash
-cd ~/go2_cun
-```
-
-Si quieres usar SOLO go2_cun
-
-Abre una terminal nueva y ejecuta solo:
-
-```bash
-source ~/go2_cun/install/setup.bash
-```
-
-O si tienes en tu ~/.bashrc:
-
-```bash
-source /opt/ros/humble/setup.bash
-source ~/go2_cun/install/setup.bash
-```
-
-### (no sourcear turtlebot ahí)
- 
-```bash
-~/go2_cun$ cd ~/go2_cun colcon build
-```
-
-###  ======================================== ojo =======================
-
 ### VERIFICACION 
 
 ```bash
@@ -106,7 +74,7 @@ Paquetes específicos del GO2 (2 paquetes) Paquetes del Go2 :
 go2_config - Configuración del GO2
 go2_description - Descripción URDF del GO2
 
-Estado actual:
+Estado actual:     ===========CAMVIAR FORMATO A PUNTOS ====================
 ✅ Workspace go2_cun creado correctamente
 ✅ 11 paquetes compilados exitosamente
 ✅ Sourced correctamente
@@ -114,7 +82,100 @@ Estado actual:
 
 Por eso la mayoría de paquetes son champ_*, no unitree_*.
 
-### Qué es CHAMP
+### Qué es CHAMP   ===========CAMVIAR FORMATO A PUNTOS ====================
+
+CHAMP es un:
+
+framework de locomoción para robots cuadrúpedos
+
+El Go2 usa CHAMP para:
+
+control de patas
+
+gait (caminar)
+
+simulación en Gazebo
+
+teleoperación
+
+👉 Por eso la mayoría de paquetes son champ_*, no unitree_*.
+
+
+
+##                                 Abrir el terminal desde cero para poder trabajar
+
+###  ======================================== Problemas previos que se tuvo despues de ejecutar el gazebo  =======================
+Ejecute 
+```bash
+ros2 launch go2_config gazebo.launch.py
+```
+Funcionó → Gazebo se abrió
+
+luego ejecute 
+
+```bash
+ros2 launch go2_config gazebo.launch.py rviz:=true
+```
+y aparecio Package 'go2_config' not found, esto se debe a que ROS solo buscó en 
+
+/home/lizbeth/turtlebot4_ws/install/...
+/opt/ros/humble
+
+ y NO buscó en ~/go2_cun/install
+
+## Solucion Temporal :
+
+```bash
+source ~/go2_cun/install/setup.bash
+```
+
+Luego verifica:
+
+```bash
+ros2 pkg list | grep go2
+```
+
+Debe salir:
+
+```bash
+go2_config
+go2_description
+```
+
+Y ahora sí ejecuta:
+
+```bash
+ros2 launch go2_config gazebo.launch.py rviz:=true
+```
+
+# Regla de oro (quédate con esto)
+
+❗ Cada terminal nueva necesita su source ya que ROS no recuerda workspaces entre terminales
+
+# Solucion Permanente para evitar que vuelva a pasar (opcional)
+Edita tu ~/.bashrc y deja el orden correcto:
+
+```bash
+source /opt/ros/humble/setup.bash
+source ~/turtlebot4_ws/install/setup.bash
+source ~/go2_cun/install/setup.bash
+```
+El último tiene prioridad → Go2 queda activo.
+
+```bash
+source ~/.bashrc
+```
+
+# luego de haber arreglado con la solucion permanente 
+Luego de haber aplicado esa solucion puedo seguir con la ejecucion
+
+```bash
+source ~/go2_cun/install/setup.bash
+ros2 launch go2_config gazebo.launch.py rviz:=true
+```
+
+###  ======================================== ojo =======================
+
 
 
 ---------------------------------------------ABRIR TERMINALES----------------------------------------------------
