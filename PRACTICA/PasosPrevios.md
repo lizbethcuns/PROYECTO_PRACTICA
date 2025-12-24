@@ -35,6 +35,8 @@ lizbeth@lizbeth-Laptop:~/go2_cun$ echo $COLCON_PREFIX_PATH
 lizbeth@lizbeth-Laptop:~/go2_cun$ 
 ```
 ##                                 Abrir el terminal desde cero para poder trabajar
+
+###  ======================================== Problemas previos que se tuvo despues de ejecutar el gazebo  =======================
 Abrir el workspace
 
 ```bash
@@ -58,11 +60,12 @@ source ~/go2_cun/install/setup.bash
 
 ### (no sourcear turtlebot ahí)
  
-###  ======================================== ojo =======================
-
 ```bash
 ~/go2_cun$ cd ~/go2_cun colcon build
 ```
+
+###  ======================================== ojo =======================
+
 ### VERIFICACION 
 
 ```bash
@@ -112,7 +115,6 @@ Estado actual:
 Por eso la mayoría de paquetes son champ_*, no unitree_*.
 
 ### Qué es CHAMP
-
 
 
 ---------------------------------------------ABRIR TERMINALES----------------------------------------------------
