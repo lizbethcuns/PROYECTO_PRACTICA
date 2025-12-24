@@ -92,3 +92,17 @@ Estado actual:
 ✅ Paquetes disponibles en ROS2
 
 Por eso la mayoría de paquetes son champ_*, no unitree_*.
+
+
+---------------------------------------------ABRIR TERMINALES----------------------------------------------------
+Gazebo demo: Run the Gazebo environment
+ros2 launch go2_config gazebo.launch.py
+2.2 Walking demo in RVIZ: Run the gazebo along with rviz
+source ~/go2_cun/install/setup.bash
+Luego verifica:
+ros2 pkg list | grep go2
+Debe salir:
+go2_config
+go2_description
+Y ahora sí ejecuta:
+ros2 launch go2_config gazebo.launch.py rviz:=true
