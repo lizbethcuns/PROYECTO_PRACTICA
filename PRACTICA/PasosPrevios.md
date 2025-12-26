@@ -351,7 +351,7 @@ Bash
 ```bash
 ros2 launch go2_config gazebo_velodyne.launch.py rviz:=true
 ```
-En primera instancia no se va a visualizar el LIDAR , lo que hay que hacer es en 
+En primera instancia no se va a visualizar el LIDAR , por lo cual hay que hacer los siguientes cambios que se visualizan en el video, como parte adicional se agrega un cilindro para poder comprobar de mejor manera los resultados.
 
 https://github.com/user-attachments/assets/df0f7599-941f-4899-b5a0-d9b4385ae425
 
