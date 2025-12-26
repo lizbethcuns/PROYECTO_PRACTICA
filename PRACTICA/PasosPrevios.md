@@ -386,14 +386,30 @@ Lanzar el simulador con el mundo deseado y LiDAR habilitado:
 ros2 launch go2_config gazebo_velodyne.launch.py world:=factory
 ```
 
-Ejecutar el archivo de lanzamiento que utiliza el slam_toolboxPaquete:
+# ------------ empezar de 0 ------------------
 
+```bash
+cd ~/go2_cun
+source install/setup.bash
+ros2 launch go2_config gazebo_velodyne.launch.py world:=factory rviz:=true
+```
 
-opcion 2 
+# ------------ opcion 1 ------------------ 
+
+cd ~/go2_cun
+source install/setup.bash
+ros2 launch go2_config slam.launch.py use_sim_time:=true
+# ----
+
+ros2 launch go2_config slam.launch.py use_sim_time:=true
+
+# ------------ opcion 2 ------------------ 
 ESTE (genérico / avanzado)
 ros2 launch slam_toolbox online_async_launch.py use_sim_time:=true
 
-
+# ------------ opcion 3 - SIMILAR  ------------------ 
+source ~/go2_cun/install/setup.bash
+ros2 launch slam_toolbox online_async_launch.py use_sim_time:=True
 
 
 
