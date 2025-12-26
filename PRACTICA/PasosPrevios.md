@@ -351,6 +351,10 @@ Bash
 ```bash
 ros2 launch go2_config gazebo_velodyne.launch.py rviz:=true
 ```
+En primera instancia no se va a visualizar el LIDAR , lo que hay que hacer es en 
+
+
+
 
 ##
 ##
