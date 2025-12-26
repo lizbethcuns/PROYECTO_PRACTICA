@@ -256,7 +256,39 @@ y ejecutar los demas terminales...
 Para poder ver mas informacion abrir el siguiente archivo que se encuentra en la carpeta de UnitreeGo2 
 
 
+### PARA EL LIDDAR 2D
+Yo trabajare con el LIDDAR 2D por lo cual primero es 
 
+PASO 1: VER QUÉ TIENES REALMENTE
+
+```bash
+cd ~/go2_cun
+ls
+```
+Debes ver algo como:
+
+
+```bash
+src  install  build  log
+
+```
+PASO 2: BUSCAR go2_description DE VERDAD
+
+```bash
+find ~/go2_cun/src -name go2_description
+```
+
+Si todo está bien, verás algo como:
+
+```bash
+/home/lizbeth/go2_cun/src/unitree-go2-ros2/robots/descriptions/go2_description
+```
+
+PASO 3: IR A LA CARPETA CORRECTA
+
+
+##
+##
 
 
 
