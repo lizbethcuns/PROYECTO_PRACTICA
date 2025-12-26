@@ -302,6 +302,55 @@ robot_VLP.xacro
 velodyne.xacro
 laser.xacro
 
+PASO 4: AHORA SÍ EDITAR EL ARCHIVO
+
+```bash
+nano robot_VLP.xacro
+```
+
+Y aquí haces el cambio o se tiene que verificar que las ultimas lineas del codigo esten asi:
+
+```bash
+<!-- <xacro:include filename="$(find go2_description)/xacro/velodyne.xacro"/> -->
+<xacro:include filename="$(find go2_description)/xacro/laser.xacro"/>
+```
+
+Reconstruir el workspace
+¡Tengo una excelente noticia! ¡Tu archivo ya está configurado correctamente! 🎉
+
+Si miras al final del código que me acabas de mandar, verás esto:
+
+```bash
+XML
+
+    <xacro:include filename="$(find go2_description)/xacro/laser.xacro"/>
+```
+
+    La línea del Velodyne tiene `` alrededor. (Esto significa que está APAGADO / Comentado).
+
+    La línea del Laser (Hokuyo) NO tiene flechas alrededor. (Esto significa que está ENCENDIDO).
+
+Así que no tienes que escribir nada más en el archivo. Ya está listo para usar el láser 2D.
+Sigue estos pasos para probarlo ahora mismo:
+1. Salir de Nano
+
+Como el archivo ya está bien, solo sal sin guardar (o guarda, da igual porque no hiciste cambios):
+
+    Presiona Ctrl + X.
+
+2. Reconstruir el espacio de trabajo
+
+```bash
+cd ~/go2_cun
+colcon build
+source install/setup.bash
+```
+Ejecuta el comando para abrir Gazebo y RViz:
+Bash
+
+```bash
+ros2 launch go2_config gazebo_velodyne.launch.py rviz:=true
+```
 
 ##
 ##
