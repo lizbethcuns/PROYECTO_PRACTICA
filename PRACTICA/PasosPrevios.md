@@ -360,8 +360,37 @@ En primera instancia no se va a visualizar el LIDAR , por lo cual hay que hacer 
 
 https://github.com/user-attachments/assets/df0f7599-941f-4899-b5a0-d9b4385ae425
 
+### Cambiar el mundo 
+Empecemos por configurar y lanzar el mundo "factory" (tu asignado). Esto es el paso inicial para todo: simulación en el entorno correcto, con LiDAR y RViz. Después, pasamos a mapeo (Parte A),
 
-##
+# Configura el GAZEBO_MODEL_PATH
+
+```bash
+echo 'export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/lizbeth/go2_cun/src/unitree-go2-ros2/robots/configs/go2_config/models/' >> ~/.bashrc
+```
+# Lanza la Simulación con el Mundo "Factory" y LiDAR/RViz:
+
+```bash
+source ~/.bashrc
+```
+
+# Lanza la Simulación con el Mundo "Factory" y LiDAR/RViz:
+
+```bash
+ros2 launch go2_config gazebo_velodyne.launch.py rviz:=true world:=factory
+```
+
+
+###
+
+
+###
+
+###
+###
+###
+###
+
 ##
 
 
