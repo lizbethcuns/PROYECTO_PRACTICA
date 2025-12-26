@@ -43,6 +43,7 @@ ros2 pkg list | grep go2
 
 Aparecera algo como
 
+```bash
 champ
 champ_base
 champ_bringup
@@ -54,11 +55,13 @@ champ_navigation
 champ_teleop
 go2_config
 go2_description
+```
 
 Aunque el repositorio se llama: unitree-go2-ros2, NINGÚN paquete ROS se llama unitree_*.
 
 Paquetes del framework CHAMP (9 paquetes) (control de robots cuadrúpedos) : 
 
+```bash
 champ - Framework base
 champ_base - Controlador base
 champ_bringup - Lanzadores
@@ -68,21 +71,24 @@ champ_gazebo - Integración con Gazebo
 champ_msgs - Mensajes personalizados
 champ_navigation - Navegación
 champ_teleop - Teleoperación
+```
 
 Paquetes específicos del GO2 (2 paquetes) Paquetes del Go2 :
 
+```bash
 go2_config - Configuración del GO2
 go2_description - Descripción URDF del GO2
+```
 
-Estado actual:     ===========CAMVIAR FORMATO A PUNTOS ====================
-✅ Workspace go2_cun creado correctamente
-✅ 11 paquetes compilados exitosamente
-✅ Sourced correctamente
-✅ Paquetes disponibles en ROS2
+Estado actual:    
+- Workspace go2_cun creado correctamente;
+- 11 paquetes compilados exitosamente;
+- Sourced correctamente;
+- Paquetes disponibles en ROS2;
 
 Por eso la mayoría de paquetes son champ_*, no unitree_*.
 
-### Qué es CHAMP   ===========CAMVIAR FORMATO A PUNTOS ====================
+### Qué es CHAMP   
 
 CHAMP es un:
 
@@ -90,21 +96,14 @@ framework de locomoción para robots cuadrúpedos
 
 El Go2 usa CHAMP para:
 
-control de patas
-
-gait (caminar)
-
-simulación en Gazebo
-
-teleoperación
+- Control de patas;
+- gait (caminar);
+- simulación en Gazebo;
+- teleoperación;
 
 👉 Por eso la mayoría de paquetes son champ_*, no unitree_*.
 
-
-
-##                                 Abrir el terminal desde cero para poder trabajar
-
-###  ======================================== Problemas previos que se tuvo despues de ejecutar el gazebo  =======================
+### Problemas previos que se tuvo despues de ejecutar el gazebo  
 Ejecute 
 ```bash
 ros2 launch go2_config gazebo.launch.py
@@ -118,10 +117,16 @@ ros2 launch go2_config gazebo.launch.py rviz:=true
 ```
 y aparecio Package 'go2_config' not found, esto se debe a que ROS solo buscó en 
 
+```bash
 /home/lizbeth/turtlebot4_ws/install/...
 /opt/ros/humble
+```
 
- y NO buscó en ~/go2_cun/install
+ y NO buscó en 
+
+ ```bash
+ ~/go2_cun/install
+```
 
 ## Solucion Temporal :
 
@@ -148,7 +153,7 @@ Y ahora sí ejecuta:
 ros2 launch go2_config gazebo.launch.py rviz:=true
 ```
 
-# Regla de oro (quédate con esto)
+# Regla de oro 
 
 ❗ Cada terminal nueva necesita su source ya que ROS no recuerda workspaces entre terminales
 
@@ -165,7 +170,7 @@ El último tiene prioridad → Go2 queda activo.
 ```bash
 source ~/.bashrc
 ```
-# Solucion 2 Permanente para evitar que vuelva a pasar (MAS RECOMENDADA )
+# Solucion 2 Permanente para evitar que vuelva a pasar (MAS RECOMENDADA LA QUE APLIQUE)
 
 ```bash
 cd ~/go2_cun
@@ -228,15 +233,13 @@ go2_config
 go2_description
 ```
 
-# A partir de ahora     ===============PONERLE PUNTITOS===========
+# A partir de ahora    
 
 Cada terminal nueva:
 
-Ya tiene ROS Humble
-
-Ya tiene GO2
-
-NO tendrás que hacer source manual, Cuando quieras turtlebot:
+- Ya tiene ROS Humble;
+- Ya tiene GO2;
+- NO tendrás que hacer source manual, Cuando quieras turtlebot;
 
 ## luego de haber arreglado con la solucion permanente puedo iniciar asi
 
@@ -298,9 +301,11 @@ ls
 
 Ahí SÍ debes ver archivos como:
 
+```bash
 robot_VLP.xacro
 velodyne.xacro
 laser.xacro
+```
 
 PASO 4: AHORA SÍ EDITAR EL ARCHIVO
 
