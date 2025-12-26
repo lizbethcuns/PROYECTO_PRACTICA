@@ -285,6 +285,22 @@ Si todo está bien, verás algo como:
 ```
 
 PASO 3: IR A LA CARPETA CORRECTA
+ejecuta 
+
+```bash
+cd ~/go2_cun/src/unitree-go2-ros2/robots/descriptions/go2_description/xacro
+```
+luego
+
+```bash
+ls
+```
+
+Ahí SÍ debes ver archivos como:
+
+robot_VLP.xacro
+velodyne.xacro
+laser.xacro
 
 
 ##
