@@ -417,9 +417,12 @@ ros2 launch go2_config gazebo_velodyne.launch.py world:=factory rviz:=true
 
 # ------------ opcion 1 MAS RECOMENDADA ------------------ 
 
+```bash
 cd ~/go2_cun
 source install/setup.bash
 ros2 launch go2_config slam.launch.py use_sim_time:=true
+```
+
 # ----
 
 ros2 launch go2_config slam.launch.py use_sim_time:=true
