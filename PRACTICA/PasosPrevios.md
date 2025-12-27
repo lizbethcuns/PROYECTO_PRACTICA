@@ -451,6 +451,68 @@ ros2 run nav2_map_server map_saver_cli -f mapa_factory
 ```
 
 ###
+
+Analizando tus registros (logs) a fondo, he encontrado la causa exacta de tus tres problemas (robot que se mueve solo, robot que desaparece y el mapa que no se crea).
+
+El error clave en tu terminal es este: [planner_server-3] [ERROR] ... Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.
+
+Esto significa que el Tiempo de Gazebo y el Tiempo de tu SLAM están desincronizados.
+
+    El problema: Tu computadora carga la fábrica (que es pesada) y se "laguea" (se retrasa). Gazebo sigue contando el tiempo, pero el SLAM (RViz) se queda atrás esperando datos. Cuando los datos llegan, ya son "viejos" y el sistema los borra (discarding message).
+
+    El síntoma: Como los datos se borran, el robot "desaparece" de RViz porque el sistema no sabe dónde está en ese milisegundo exacto.
+
+Aquí tienes la solución paso a paso para corregir la sincronización y el movimiento fantasma:
+PASO 1: Reinicio Total (Obligatorio)
+
+Tus procesos actuales están "intoxicados" con errores de tiempo. Debemos matarlos todos. Ejecuta esto en una terminal:
+Bash
+
+pkill -f gazebo
+pkill -f ros
+pkill -f rviz
+
+PASO 2: La Técnica del "Inicio Pausado" (La Solución Mágica)
+
+Para que el mapa y el robot se muevan juntos, deben empezar al mismo tiempo. Vamos a lanzar Gazebo congelado para que no avance el reloj hasta que el SLAM esté listo.
+
+Terminal 1 (Gazebo):
+Bash
+
+ros2 launch go2_config gazebo_velodyne.launch.py world:=factory rviz:=true paused:=true
+
+    Lo que verás: Se abre Gazebo y RViz. El robot aparece. Todo está congelado. El tiempo abajo dice 00:00:00. ¡NO LE DES PLAY AÚN!
+
+PASO 3: Lanzar el SLAM (Mientras el tiempo está detenido)
+
+Ahora que el simulador está listo pero quieto, cargamos el cerebro (SLAM).
+
+Terminal 2 (SLAM):
+Bash
+
+source ~/go2_cun/install/setup.bash
+ros2 launch go2_config slam.launch.py use_sim_time:=true
+
+    Nota: Si corregiste el error de btth usa este. Si no, usa el genérico de slam_toolbox.
+
+    Al lanzarlo ahora, el SLAM se quedará esperando el "Primer tic de reloj".
+
+PASO 4: El "Play" Sincronizado y Frenar al Robot
+
+Aquí solucionamos que el robot se mueva solo.
+
+    Abre la Terminal 3 (Teclado):
+    Bash
+
+source ~/go2_cun/install/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+
+Pon tus ventanas de manera que veas Gazebo y la Terminal 3 al mismo tiempo.
+
+Ve a Gazebo y dale al botón Play (▶).
+
+INMEDIATAMENTE ve a la terminal del teclado y presiona la tecla k (Stop) y la barra Espaciadora.
+
 ###
 ###
 ###
