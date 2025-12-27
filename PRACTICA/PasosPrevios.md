@@ -390,7 +390,7 @@ ros2 launch go2_config gazebo_velodyne.launch.py world:=factory
 ### ACTIVAR EL LIDDAR EN EL GAZEBO 
 
 ```bash
-nano ~/go2_cun/install/go2_description/share/go2_description/xacro
+nano ~/go2_cun/install/go2_description/share/go2_description/xacro/laser.xacro
 ```
 En la linea de Esa etiqueta <visualize>false</visualize> es el "interruptor" para ver los rayos azules en Gazebo, por lo cual viene por defecto false, para poder visualizar los rayos en el Gazebo hay que cambiarlo a true
 
