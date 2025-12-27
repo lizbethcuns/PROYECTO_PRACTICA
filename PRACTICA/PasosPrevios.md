@@ -434,13 +434,18 @@ ros2 launch slam_toolbox online_async_launch.py use_sim_time:=True
 
 # Mueve el robot (teleop)
 
+```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
 
 # Guarda el mapa
+Abre una Terminal #4 y ejecuta este comando para guardar tu trabajo:
+Bash
 
-ros2 run nav2_map_server map_saver_cli -f factory_map
-
-
+```bash
+cd ~/go2_cun
+ros2 run nav2_map_server map_saver_cli -f mapa_factory
+```
 
 ###
 ###
