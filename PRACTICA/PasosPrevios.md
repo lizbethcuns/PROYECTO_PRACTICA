@@ -393,8 +393,9 @@ cd ~/go2_cun
 source install/setup.bash
 ros2 launch go2_config gazebo_velodyne.launch.py world:=factory rviz:=true
 ```
+# En otra terminal para lanzar el SLAM
 
-# ------------ opcion 1 ------------------ 
+# ------------ opcion 1 MAS RECOMENDADA ------------------ 
 
 cd ~/go2_cun
 source install/setup.bash
