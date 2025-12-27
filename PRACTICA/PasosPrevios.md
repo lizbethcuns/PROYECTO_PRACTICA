@@ -374,7 +374,7 @@ echo 'export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/lizbeth/go2_cun/src/unit
 source ~/.bashrc
 ```
 
-# Lanza la Simulación con el Mundo "Factory" y LiDAR/RViz:
+# ================== OJOOOOO Lanza la Simulación con el Mundo "Factory" y LiDAR/RViz:
 
 ```bash
 ros2 launch go2_config gazebo_velodyne.launch.py rviz:=true world:=factory
@@ -385,6 +385,26 @@ Lanzar el simulador con el mundo deseado y LiDAR habilitado:
 ```bash
 ros2 launch go2_config gazebo_velodyne.launch.py world:=factory
 ```
+# ================== OJOOOOO 
+
+### ACTIVAR EL LIDDAR EN EL GAZEBO 
+
+```bash
+nano ~/go2_cun/install/go2_description/share/go2_description/xacro
+```
+En la linea de Esa etiqueta <visualize>false</visualize> es el "interruptor" para ver los rayos azules en Gazebo, por lo cual viene por defecto false, para poder visualizar los rayos en el Gazebo hay que cambiarlo a true
+
+<img width="833" height="193" alt="Image" src="https://github.com/user-attachments/assets/5bd28054-08ec-422e-b757-43e4106a63e2" />
+
+Guardar los cambios y volver a ejecutar el gazebo y se podran ver los cambios 
+
+Se van a poder ver los cambios 
+Antes
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/1ac60da3-4220-4cd9-8300-21d8cfe319d5" />
+Despues 
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/4352c180-b294-4833-a084-f014ebdc826b" />
+
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/c5a78932-8f45-4e8c-bb02-c72728b94cb4" />
 
 # ------------ empezar de 0 ------------------
 
@@ -421,7 +441,6 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ros2 run nav2_map_server map_saver_cli -f factory_map
 
 
-###
 
 ###
 ###
