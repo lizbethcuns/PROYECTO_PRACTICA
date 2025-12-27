@@ -411,9 +411,13 @@ ros2 launch slam_toolbox online_async_launch.py use_sim_time:=true
 source ~/go2_cun/install/setup.bash
 ros2 launch slam_toolbox online_async_launch.py use_sim_time:=True
 
+# Mueve el robot (teleop)
 
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
-###
+# Guarda el mapa
+
+ros2 run nav2_map_server map_saver_cli -f factory_map
 
 
 ###
